@@ -1,8 +1,11 @@
-import React, { useState,useEffect } from 'react';
-import { Link,useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import deleteIcon from '../assets/delete.png'
+import submitIcon from '../assets/submit.png'
 
 export default function EditTask() {
     const { id } = useParams();
+
     const [todo, setTodo] = useState({
         title: '',
         description: '',
@@ -33,14 +36,24 @@ export default function EditTask() {
         }));
     };
 
-    let updataTodo= async()=>{
+    let updataTodo = async () => {
 
         fetch(`/api/todos/${id}/`, {
             method: "PUT",
-            headers:{
-                'Content-Type':'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(todo)
+        })
+    }
+
+    let deleteTodo = async () => {
+
+        fetch(`/api/todos/${id}/`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
     }
 
@@ -85,11 +98,13 @@ export default function EditTask() {
                     Complete status
                 </label>
             </div>
-                <Link to ='/'>
-                <button type="submit" className="btn btn-primary" onClick={updataTodo}>
-                    Submit
-                </button>
-                </Link>
+            <Link to='/'>
+                
+                    <img src={submitIcon} alt='updata'onClick={updataTodo}/>
+                    <img src={deleteIcon} alt='delete' onClick={deleteTodo} />
+                
+            </Link>
+
 
         </form>
     );

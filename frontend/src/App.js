@@ -5,11 +5,11 @@ import ListsView from "./components/ListsView";
 import NavbarList from "./components/NavbarList";
 import AddTask from "./components/AddTask";
 import EditTask from "./components/EditTask";
+import CompletedList from "./components/CompletedList";
+import RunningList from "./components/RunningList";
 
 
 function App() {
-
-
 
     return (
 
@@ -22,6 +22,8 @@ function App() {
                 
                 <Routes>
                     <Route path="/"  element={<ListsView></ListsView>}/>
+                    <Route path="/completed"  element={<CompletedList filter='completed'></CompletedList>}/>
+                    <Route path="/running"  element={<RunningList filter='running'></RunningList>}/>
                     <Route path="/add-task" element={<AddTask></AddTask>}/>
                     <Route path="/:id" element={<EditTask></EditTask>}/>
                     

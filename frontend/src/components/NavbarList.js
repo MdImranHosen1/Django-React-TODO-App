@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 export default function NavbarList() {
     return (
         <ul className="nav justify-content-center">
@@ -14,10 +15,10 @@ export default function NavbarList() {
                     </Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/">Running</Link>
+                <Link className="nav-link" to="/running">Running </Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/">Completed</Link>
+                <Link className="nav-link" to="/completed">Completed</Link>
             </li>
         </ul>
     )

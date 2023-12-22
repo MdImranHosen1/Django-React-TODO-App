@@ -4,6 +4,7 @@ from .serializers import TodoSerializer
 
 def getTodosList(request):
     todos=Todo.objects.all()
+    
     serializer=TodoSerializer(todos,many=True)
     return Response(serializer.data)
 
